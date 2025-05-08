@@ -77,7 +77,7 @@ export class BookService {
     try {
       let book = await this.prisma.book.findFirst({ where: { id },include:{author:true} });
       if (!book) {
-        throw new NotFoundException('Auhtor not found!');
+        throw new NotFoundException('Auhtor not found');
       }
       return book;
     } catch (error) {
