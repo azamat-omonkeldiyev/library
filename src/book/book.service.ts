@@ -75,7 +75,7 @@ export class BookService {
 
   async findOne(id: string) {
     try {
-      let book = await this.prisma.book.findFirst({ where: { id } });
+      let book = await this.prisma.book.findFirst({ where: { id },include:{author:true} });
       if (!book) {
         throw new NotFoundException('Auhtor not found!');
       }
